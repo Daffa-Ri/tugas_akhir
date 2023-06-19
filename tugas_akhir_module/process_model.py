@@ -4,6 +4,8 @@ import gradio as gr
 
 import os
 
+
+model_path = "/content/drive/MyDrive/Model/"
 def load_model(name: str):
 	try:
 		model = tf.keras.models.load_model(model_path+name)

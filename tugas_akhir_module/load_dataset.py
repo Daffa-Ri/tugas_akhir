@@ -8,6 +8,9 @@ import os
 def load_dataset(path: str, batch_size: int = 32):
 	pneu_path = os.path.join(path, 'PNEUMONIA')
 	norm_path = os.path.join(path, 'NORMAL')
+	img_height = 384 #@param {type:"integer"}
+	img_width = 384 #@param {type:"integer"}
+	img_size = (img_height, img_width)
 
 	if(not os.path.isdir(path)):
 		raise gr.Error("Folder not exists")

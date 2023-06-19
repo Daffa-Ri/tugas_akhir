@@ -13,6 +13,8 @@ def evaluate_model(model, path: str):
 
 	confusion_matrix = tf.math.confusion_matrix(actual_label, prediction_label)
 
+	class_names = ['NORMAL', 'PNEUMONIA']
+
 	fig = px.imshow(
 			confusion_matrix,
 			text_auto = True,

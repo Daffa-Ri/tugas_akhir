@@ -1,0 +1,1 @@
+cmd /c ".\tugas_akhir\Scripts\python.exe" app.py

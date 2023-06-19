@@ -1,6 +1,5 @@
-import tensorflow as tf
-from load_dataset import load_dataset
-from train_model import train_model
+from .load_dataset import load_dataset
+from .train_model import train_model
 
 import plotly.express as px
 

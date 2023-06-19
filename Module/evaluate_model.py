@@ -1,5 +1,7 @@
 import tensorflow as tf
 
+from .calculate_metric import calculate_metric
+
 import plotly.express as px
 
 def evaluate_model(model, path: str):

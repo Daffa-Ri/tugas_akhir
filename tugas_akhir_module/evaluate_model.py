@@ -1,6 +1,7 @@
 import tensorflow as tf
 
 from .calculate_metric import calculate_metric
+from .read_yaml import config_class_names
 
 import plotly.express as px
 
@@ -12,6 +13,7 @@ def evaluate_model(model, path: str):
 	prediction_label = tf.math.argmax(prediction_label, axis=-1)
 
 	confusion_matrix = tf.math.confusion_matrix(actual_label, prediction_label)
+	class_names = config_class_names()
 
 	fig = px.imshow(
 			confusion_matrix,

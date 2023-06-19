@@ -4,10 +4,13 @@ import gradio as gr
 
 import os
 
+from .read_yaml import config_image_size
+
 
 def load_dataset(path: str, batch_size: int = 32):
 	pneu_path = os.path.join(path, 'PNEUMONIA')
 	norm_path = os.path.join(path, 'NORMAL')
+	img_size = config_image_size()
 
 	if(not os.path.isdir(path)):
 		raise gr.Error("Folder not exists")

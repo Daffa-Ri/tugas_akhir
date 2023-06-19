@@ -4,6 +4,9 @@ import gradio as gr
 
 import os
 
+from read_yaml import config_model_location
+
+model_path = config_model_location()
 def load_model(name: str):
 	try:
 		model = tf.keras.models.load_model(model_path+name)

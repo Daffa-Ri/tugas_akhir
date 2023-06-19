@@ -8,10 +8,6 @@ def predict_image(model, img):
 	except:
 		raise gr.Error("Please Enter an Image")
 	else:
-		img_height = 384 #@param {type:"integer"}
-		img_width = 384 #@param {type:"integer"}
-		img_size = (img_height, img_width)
-		class_names = ['NORMAL', 'PNEUMONIA']
 		img_resized = tf.image.resize(img, img_size, method='nearest')
 
 		predictions = model.predict(tf.expand_dims(img_resized, 0))

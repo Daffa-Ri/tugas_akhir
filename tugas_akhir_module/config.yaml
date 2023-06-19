@@ -2,4 +2,4 @@ image_size:
   height: 384
   width: 384
 
-model_location: /Model/
+model_location: ../Model/

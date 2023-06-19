@@ -20,4 +20,4 @@ def train_model_scheme(model, train_path: str, val_path: str, epochs: int =1000,
 	fig.update_layout(legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0))
 	fig.add_vline(finetune_initial_epoch, annotation_text="start finetuning",  line_dash="dash")
 
-  	return [model, fig]
+	return [model, fig]

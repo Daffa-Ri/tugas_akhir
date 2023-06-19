@@ -1,6 +1,6 @@
 import gradio as gr
-from .process_model import load_model, save_model
-from train_sceme import train_model_scheme
+from .process_model import load_model, save_model, list_model
+from .train_scheme import train_model_scheme
 
 def change_dropdown(name: str):
 	model = load_model(name=name)

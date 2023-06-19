@@ -1,9 +1,6 @@
 import gradio as gr
-
-def toggle_form(value):
-	if value is None:
-		return gr.update(visible=False)
-	return gr.update(visible=True)
+from .process_model import load_model, save_model
+from train_sceme import train_model_scheme
 
 def change_dropdown(name: str):
 	model = load_model(name=name)

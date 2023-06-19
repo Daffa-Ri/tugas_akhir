@@ -1,4 +1,5 @@
 import gradio as gr
+from tugas_akhir_module import predict_image, train_update, evaluate_model, change_dropdown
 
 with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 	model_dropdown = gr.Dropdown(list_model(), label="Select Model")

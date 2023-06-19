@@ -1,11 +1,10 @@
 import tensorflow as tf
-from tensorflow import keras
 
 import gradio as gr
 
 def load_model(name: str):
 	try:
-		model = keras.models.load_model(model_path+name)
+		model = tf.keras.models.load_model(model_path+name)
 	except Exception as e:
 		raise gr.Error(e)
 

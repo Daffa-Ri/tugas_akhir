@@ -1,5 +1,9 @@
+import sys
+sys.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import gradio as gr
-from .tugas_akhir_module import predict_image, train_update, evaluate_model, change_dropdown, list_model
+from tugas_akhir_module import predict_image, train_update, evaluate_model, change_dropdown, list_model
+import argparse
 
 with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 	model_dropdown = gr.Dropdown(list_model(), label="Select Model")
@@ -63,5 +67,9 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 
 	model_dropdown.change(change_dropdown, inputs=model_dropdown, outputs=[tf_model, gr_form, model_dropdown])
 
+argParser = argparse.ArgumentParser()
+argParser.add_argument("-s", "--share", type=bool, help="Provide shareable link", default=False)
 
-demo.queue().launch(debug=True)
+args = argParser.parse_args()
+
+demo.queue().launch(debug=True, share=args.share)

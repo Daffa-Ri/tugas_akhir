@@ -1,5 +1,5 @@
-import sys
-sys.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 import gradio as gr
 from tugas_akhir_module import predict_image, train_update, evaluate_model, change_dropdown, list_model

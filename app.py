@@ -21,10 +21,8 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 					with gr.Accordion("Gambar Setelah Proses Rescale", open=False):
 						with gr.Row():
 							klasifikasi_img_resized = gr.Image()
-			with gr.Row():
-				klasifikasi_submit = gr.Button("Submit")
-				clear = gr.Button("Clear")
-				klasifikasi_submit.click(predict_image, inputs = [tf_model, klasifikasi_input], outputs = [klasifikasi_label, klasifikasi_img_resized])
+			klasifikasi_submit = gr.Button("Submit")
+			klasifikasi_submit.click(predict_image, inputs = [tf_model, klasifikasi_input], outputs = [klasifikasi_label, klasifikasi_img_resized])
 
 		with gr.Tab("Training Model"):
 			gr.Markdown(
@@ -44,10 +42,8 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 				with gr.Column():
 					training_plot = gr.Plot()
 
-			with gr.Row():
-				training_submit = gr.Button("Submit")
-				clear = gr.Button("Clear")
-				training_submit.click(train_update, inputs=[tf_model, training_data_train, training_data_val, training_save_model, training_epochs, training_fn_epochs, training_lr, training_fn_lr] , outputs = [tf_model, training_plot, model_dropdown])
+			training_submit = gr.Button("Submit")
+			training_submit.click(train_update, inputs=[tf_model, training_data_train, training_data_val, training_save_model, training_epochs, training_fn_epochs, training_lr, training_fn_lr] , outputs = [tf_model, training_plot, model_dropdown])
 
 		with gr.Tab("Evaluasi Model"):
 			gr.Markdown(
@@ -60,10 +56,8 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 				with gr.Column():
 					evaluasi_plot = gr.Plot()
 					evaluasi_label = gr.Label(label="Output", show_label=False)
-			with gr.Row():
-				evaluasi_submit = gr.Button("Submit")
-				clear = gr.Button("Clear")
-				evaluasi_submit.click(evaluate_model, inputs = [tf_model, evaluasi_data_test], outputs = [evaluasi_plot, evaluasi_label] )
+			evaluasi_submit = gr.Button("Submit")
+			evaluasi_submit.click(evaluate_model, inputs = [tf_model, evaluasi_data_test], outputs = [evaluasi_plot, evaluasi_label] )
 
 	model_dropdown.change(change_dropdown, inputs=model_dropdown, outputs=[tf_model, gr_form, model_dropdown])
 

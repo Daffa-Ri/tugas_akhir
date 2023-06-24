@@ -2,7 +2,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 import gradio as gr
-from tugas_akhir_module import predict_image, train_update, evaluate_model, change_dropdown, list_model
+from tugas_akhir_module import predict_image, train_update, evaluate_model, change_dropdown, list_model, get_model_hash
 import argparse
 
 with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
@@ -58,6 +58,16 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 					evaluasi_label = gr.Label(label="Output", show_label=False)
 			evaluasi_submit = gr.Button("Submit")
 			evaluasi_submit.click(evaluate_model, inputs = [tf_model, evaluasi_data_test], outputs = [evaluasi_plot, evaluasi_label] )
+		
+		with gr.Tab("Calculate Model Hash"):
+			gr.Markdown(
+					"""
+					<h1 style="text-align: center;">Evaluasi Model</h1>
+					""")
+			with gr.Row():
+				hash_submit = gr.Button("Calculate Hash")
+				hash_output = gr.Textbox(label="Model Hash")
+				hash_submit.click(get_model_hash, inputs = model_dropdown, outputs = hash_output)
 
 	model_dropdown.change(change_dropdown, inputs=model_dropdown, outputs=[tf_model, gr_form, model_dropdown])
 

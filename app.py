@@ -62,7 +62,7 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 		with gr.Tab("Calculate Model Hash"):
 			gr.Markdown(
 					"""
-					<h1 style="text-align: center;">Evaluasi Model</h1>
+					<h1 style="text-align: center;">Calculate Model Hash</h1>
 					""")
 			with gr.Row():
 				hash_submit = gr.Button("Calculate Hash")

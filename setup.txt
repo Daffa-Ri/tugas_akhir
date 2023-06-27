@@ -2,4 +2,6 @@ python -m venv "tugas_akhir"
 cd "tugas_akhir"
 cd Scripts
 activate
+cd ..
+cd ..
 pip install -r requirements.txt

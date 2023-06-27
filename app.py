@@ -9,20 +9,16 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 	model_dropdown = gr.Dropdown(list_model(), label="Select Model")
 	tf_model = gr.State()
 	with gr.Column(visible = False) as gr_form:
-		with gr.Tab("Klasifikasi Gambar"):
+
+		with gr.Tab("Calculate Model Hash"):
 			gr.Markdown(
 					"""
-					<h1 style="text-align: center;">Klasifikasi Gambar</h1>
+					<h1 style="text-align: center;">Calculate Model Hash</h1>
 					""")
 			with gr.Row():
-				klasifikasi_input = gr.Image(label="Input")
-				with gr.Column():
-					klasifikasi_label = gr.Label(label="Output", num_top_classes=2)
-					with gr.Accordion("Gambar Setelah Proses Rescale", open=False):
-						with gr.Row():
-							klasifikasi_img_resized = gr.Image()
-			klasifikasi_submit = gr.Button("Submit")
-			klasifikasi_submit.click(predict_image, inputs = [tf_model, klasifikasi_input], outputs = [klasifikasi_label, klasifikasi_img_resized])
+				hash_submit = gr.Button("Calculate Hash")
+				hash_output = gr.Textbox(label="Model Hash")
+				hash_submit.click(get_model_hash, inputs = model_dropdown, outputs = hash_output)
 
 		with gr.Tab("Training Model"):
 			gr.Markdown(
@@ -59,15 +55,18 @@ with gr.Blocks(css="footer {visibility: hidden}" ) as demo:
 			evaluasi_submit = gr.Button("Submit")
 			evaluasi_submit.click(evaluate_model, inputs = [tf_model, evaluasi_data_test], outputs = [evaluasi_plot, evaluasi_label] )
 		
-		with gr.Tab("Calculate Model Hash"):
+		with gr.Tab("Klasifikasi Gambar"):
 			gr.Markdown(
 					"""
-					<h1 style="text-align: center;">Calculate Model Hash</h1>
+					<h1 style="text-align: center;">Klasifikasi Gambar</h1>
 					""")
 			with gr.Row():
-				hash_submit = gr.Button("Calculate Hash")
-				hash_output = gr.Textbox(label="Model Hash")
-				hash_submit.click(get_model_hash, inputs = model_dropdown, outputs = hash_output)
+				klasifikasi_input = gr.Image(label="Input")
+				klasifikasi_label = gr.Label(label="Output", num_top_classes=2)
+
+			klasifikasi_submit = gr.Button("Submit")
+			klasifikasi_submit.click(predict_image, inputs = [tf_model, klasifikasi_input], outputs = klasifikasi_label)
+
 
 	model_dropdown.change(change_dropdown, inputs=model_dropdown, outputs=[tf_model, gr_form, model_dropdown])
 

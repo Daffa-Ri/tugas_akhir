@@ -17,4 +17,4 @@ def predict_image(model, img):
 		predictions = model.predict(tf.expand_dims(img_resized, 0))
 		score = tf.nn.softmax(predictions[0])
 
-		return [{class_names[i]: float(score[i]) for i in range(2)}, tf.keras.utils.array_to_img(img_resized)]
+		return {class_names[i]: float(score[i]) for i in range(2)}

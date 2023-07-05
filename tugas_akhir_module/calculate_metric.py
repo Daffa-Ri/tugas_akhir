@@ -12,5 +12,6 @@ def calculate_metric(confusion_matrix):
 	return {
 			"Accuracy" : float(accuracy),
 			"Precision" : float(precision),
+			"Recall" : float(recall),
 			"F1Score" : float(f1_score)
 	}

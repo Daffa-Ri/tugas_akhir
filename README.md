@@ -7,4 +7,4 @@ Aplikasi hasil dari tugas akhir "IMPLEMENTASI IMAGE AUGMENTATION UNTUK KLASIFIKA
 
 <a target="_blank" href="https://huggingface.co/Daffa-Ri/efficientnetV2_Pneumonia_Classification/tree/main">
 link
-</a> for trained Efficientnetv2 model
+</a> untuk model Efficientnetv2 yang telah dilatih untuk klasifikasi pneumonia 
